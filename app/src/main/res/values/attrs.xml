@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--自定义属性-->
+<resources>
+
+    <declare-styleable name="HomeImageView">
+
+        <attr name="width_home" format="float"/>
+
+        <attr name="height_home" format="float"/>
+
+    </declare-styleable>
+
+</resources>
