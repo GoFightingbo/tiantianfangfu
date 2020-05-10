@@ -4,7 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <!--我们项目的颜色-->
     <!-- 主色 -->
     <color name="main_color">#24cfa2</color>
     <color name="defualt_text_color">#636363</color>
@@ -22,4 +21,13 @@
 
     <!-- 头部颜色 -->
     <color name="top_bg_color"> #323a45</color>
+
+    <!-- 深灰色 -->
+    <color name="main_digrey"> #999999</color>
+
+    <!-- 灰色 -->
+    <color name="main_gray"> #767676</color>
+
+    <!-- 无色 -->
+    <color name="no_color">#00000000</color>
 </resources>

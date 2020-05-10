@@ -21,7 +21,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.xiangxue.myproject.mode.UserLoginResult;
+import com.xiangxue.myproject.util.ActivityManagerUtil;
 import com.xiangxue.myproject.util.CommUtil;
+import com.xiangxue.myproject.util.MD5Util;
 
 import java.io.IOException;
 
@@ -44,6 +46,10 @@ public class UserLoginActivity extends AppCompatActivity implements CompoundButt
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
+
+        //单独统一管理activity
+        ActivityManagerUtil.getInstance().addActivity(this);
+
         mCheckPwdCb = findViewById(R.id.check_password_cb);
         mUserPhoneText = findViewById(R.id.user_phone_et);
         mUserPwdText = findViewById(R.id.user_password_et);
@@ -68,6 +74,7 @@ public class UserLoginActivity extends AppCompatActivity implements CompoundButt
             //隐藏密码
             mUserPwdText.setTransformationMethod(PasswordTransformationMethod.getInstance());
         }
+        //光标移动到末尾
         CommUtil.cursorToEnd(mUserPwdText);
     }
 
@@ -90,7 +97,7 @@ public class UserLoginActivity extends AppCompatActivity implements CompoundButt
                 break;
             case R.id.user_register_tv :
                 Intent registerIntent = new Intent(this, UserRegisterActivity.class);
-                startActivity(registerIntent);
+                startActivityForResult(registerIntent, 0);
                 break;
         }
     }
@@ -106,7 +113,7 @@ public class UserLoginActivity extends AppCompatActivity implements CompoundButt
         //3封装参数
         builder.addFormDataPart("appid", "1");
         builder.addFormDataPart("cell_phone", userPhone);
-        builder.addFormDataPart("password", userPwd);
+        builder.addFormDataPart("password", MD5Util.strToMd5(userPwd));
 
         //请求服务器的URL
         final String LOGIN_URL = "http://v2.ffu365.com/index.php?m=Api&c=Member&a=login";

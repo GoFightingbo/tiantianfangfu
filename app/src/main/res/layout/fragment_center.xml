@@ -12,6 +12,7 @@
         android:background="@color/root_bg_color"
         android:orientation="vertical">
 
+        <!--没有登录成功，显示这个-->
         <TextView
             android:id="@+id/user_login_tv"
             android:layout_width="match_parent"
@@ -24,6 +25,7 @@
             android:text="登录/注册"
             android:textColor="@color/white" />
 
+        <!--登录成功显示这个-->
         <LinearLayout
             android:id="@+id/user_logined_ll"
             android:visibility="gone"
@@ -33,7 +35,7 @@
             android:gravity="center_vertical"
             android:layout_height="wrap_content">
 
-            <com.xiangxue.myproject.ui.RoundImageView
+            <ImageView
                 android:id="@+id/user_head_iv"
                 android:src="@drawable/center_default_head"
                 android:layout_width="80dp"
